@@ -1,6 +1,6 @@
 const app = require('./main/index');
 const keys = require('./main/keys');
-//const connection = require('./src/middleware/connection');
+const connection = require('./conections');
 
 app.listen(keys.server.port, (err) => {
     connection.connect();

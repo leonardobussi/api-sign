@@ -1,43 +1,49 @@
-//const cript = require('bcrypt'); 
+const cript = require('bcrypt');
 const storage = require('localtoken');
-
-
 const resource = require('./Resource');
 const auth = require('../main/auth');
 
 
 
-exports.getLogar =  async (req, res, next) => {
-    try {
-        return res.send('bora logar')
-    } catch (err) {
-        next(err);
-    }
-}
+
 
 exports.postLogar =  async (req, res, next) => {
     try {
-        const resultado = await resource.validarRegistro(req.body);
-        console.log(resultado)
+        const resultado = await resource.validar(req.body);
         if(!resultado) {
             console.log('conta nao encontrada');
-            return res.send('conta nao encontrada')
+            return res.send('email incorreto')
             
         }
-    
-        const token = await auth.gerarToken( { resultado });
-        storage.setInLocal('Login', token);
-        return res.send('senha e email corretos')
+        if(!await cript.compare(req.body.senha, resultado.senha)) {
+            console.log('senha incorreto');
+            return res.send('senha incorreta')
+            
+        }
 
+        const token = await auth.gerarToken( { resultado });
+        storage.setInLocal('login', token);
+        console.log('logado com sucesso');
+        return res.send('logado com sucesso');
 
     } catch (err) {
         next(err);
     }
 }
 
-exports.getDeuCerto =  async (req, res, next) => {
+
+
+exports.postCriar =  async (req, res, next) => {
     try {
-        return res.send('essa rota só é acessada caso esteja logado')
+       let resultado = await resource.validar(req.body);
+       if(!resultado){
+           let adm = await resource.criar(req.body);
+           console.log(adm)
+           return res.send('registrado com sucesso')
+       } else {
+        console.log('adm ja existe');
+        return res.send('ja registrado')
+       }
     } catch (err) {
         next(err);
     }

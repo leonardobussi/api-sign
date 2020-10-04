@@ -13,16 +13,6 @@ const login = new schema({
         required: true,
         trim: true
     },
-    senha_auth: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    updatedAt: {
-        type: Date,
-        required: true,
-        default: Date.now
-    }
 });
 
-module.exports = mongoose.model('Login', login);
+module.exports = mongoose.model('login', login);

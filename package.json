@@ -1,0 +1,35 @@
+{
+  "name": "api-sign",
+  "version": "0.0.1",
+  "description": "exemplo de api sign ",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonardobussi/api-sign.git"
+  },
+  "keywords": [
+    "api",
+    "nodejs"
+  ],
+  "author": "leonardo bussi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leonardobussi/api-sign/issues"
+  },
+  "homepage": "https://github.com/leonardobussi/api-sign#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "localtoken": "^0.1.2",
+    "mongoose": "^5.10.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

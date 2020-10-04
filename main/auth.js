@@ -1,13 +1,13 @@
 const storage = require('localtoken');
 const jwt = require('jsonwebtoken');
 
-const keys = require('../../main/keys');
+const keys = require('./keys');
 
 exports.autorizar = async (req, res, next) => {
     try {
-        const token = await storage.getInLocal('Login');
+        const token = await storage.getInLocal('login');
         if(!token){
-            return res.redirect('/')
+            return res.send('vc não está autorizado')
         }
         return next();
     } catch (err) {
