@@ -1,6 +1,6 @@
 const express = require('express');
 const bp = require('body-parser');
-const rota = require('../router');
+const rota = require('../src/Routes');
 const app = express();
 
 
