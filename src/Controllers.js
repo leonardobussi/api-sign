@@ -48,3 +48,12 @@ exports.postCriar =  async (req, res, next) => {
         next(err);
     }
 }
+
+exports.getDeuCerto =  async (req, res, next) => {
+    try {      
+           return res.send('seja bem vindo a essa rota')
+       } 
+        catch (err) {
+        next(err);
+    }
+}

@@ -17,13 +17,8 @@ class Resource  {
     }
     static async  validar(dados) {
         let { email } = dados;
-        let adm = await modelo.findOne({email});
-        return adm;
-    }
-    static async  validar(dados) {
-        let { email } = dados;
-        let adm = await modelo.findOne({email});
-        return adm;
+        let login = await modelo.findOne({email});
+        return login;
     }
 }
 

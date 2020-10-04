@@ -8,8 +8,8 @@ const routes = express.Router();
 
 
 routes.post('/', Controller.postLogar);
-routes.post('/criar', Controller.postCriar);
-// routes.get('/deuCerto', auth.autorizar, Controller.getDeuCerto);
+routes.post('/criar',Controller.postCriar);
+routes.get('/deu-certo', auth.autorizar, Controller.getDeuCerto);
 
 
 
